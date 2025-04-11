@@ -20,4 +20,12 @@ class Board
   def mark_position(position, marker)
     @board[position] = marker
   end
+
+  def position.empty?(position)
+    @board[position].nil?
+  end
+
+  def full?
+    (1..9).none? { |position| @board[position].nil? }
+  end
 end
