@@ -1,24 +1,23 @@
-require_relative 'board.rb'
-require_relative 'player.rb'
+require_relative 'board'
+require_relative 'player'
 
 class Game
   def initialize(player_1, player_2)
     @board = Board.new
     @current_player_id = 0
     @players = [
-    player_1.new(@board, 'X'),
-    player_2.new(@board, 'O')
-  ]
-  if @players.any?(&:nil?)
-    raise "Player initialization failed!"
-  end
+      player_1.new(@board, 'X'),
+      player_2.new(@board, 'O')
+    ]
+    return unless @players.any?(&:nil?)
+
+    raise 'Player initialization failed!'
   end
 
   def current_player
     player = @players[@current_player_id]
-    unless player
-      raise "No player found at index #{@current_player_id} in @players array"
-    end
+    raise "No player found at index #{@current_player_id} in @players array" unless player
+
     player
   end
 

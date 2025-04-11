@@ -1,8 +1,8 @@
-require_relative 'board.rb'
+require_relative 'board'
 
 class Player
   attr_reader :marker
-  
+
   def initialize(board, marker)
     @board = board
     @marker = marker
@@ -19,6 +19,7 @@ class HumanPlayer < Player
       print "Select your #{@marker} position (1-9): "
       position = gets.to_i
       return position if @board.available_positions.include?(position)
+
       puts 'Invalid Position! Try again.'
     end
   end

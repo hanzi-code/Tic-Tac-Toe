@@ -1,9 +1,9 @@
 class Board
   WINNING_LINES = [
-  [1,2,3], [4,5,6], [7,8,9], # rows 
-  [1,4,7], [2,5,8], [3,6,9], # columns
-  [1,5,9], [3,5,7]            # diagonals
-]
+    [1, 2, 3], [4, 5, 6], [7, 8, 9], # rows
+    [1, 4, 7], [2, 5, 8], [3, 6, 9], # columns
+    [1, 5, 9], [3, 5, 7] # diagonals
+  ]
 
   def initialize
     @board = Array.new(10)
@@ -35,7 +35,7 @@ class Board
 
   def winner?(marker)
     WINNING_LINES.any? do |line|
-      line.all? { |position| @board[position] == marker}
+      line.all? { |position| @board[position] == marker }
     end
   end
 
