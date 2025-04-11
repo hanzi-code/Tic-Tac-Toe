@@ -28,4 +28,13 @@ class Board
   def full?
     (1..9).none? { |position| @board[position].nil? }
   end
+
+  def winner?
+    WINNING_LINES.any? do |line|
+      line.all? { |position| @board[position] == marker}
+  end
+
+  def available_positions
+    (1..9).select { |position| @board[position].nil? }
+  end
 end
